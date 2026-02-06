@@ -72,13 +72,13 @@ function mover(moveThis, appendToThis) {
 }
 
 function filler(list, candidates) {
-  for (const text of candidates) {
-    const li = document.createElement('li');
-    li.textContent = text;
-    list.append(li);
-  }
+    for (const text of candidates) {
+        const li = document.createElement('li');
+        li.textContent = text;
+        list.append(li);
+    }
 
-  return list;
+    return list;
 }
 
 function dupe(selector) {
