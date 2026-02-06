@@ -10,4 +10,97 @@
 
 'use strict';
 
-// add your functions here
+function replaceText(elem, str) {
+    elem.textContent = str;
+}
+
+function addTextTo(elem, str) {
+    elem.textContent += str;
+}
+
+function moreBears() {
+    const animalsElement = document.getElementById('animals');
+    animalsElement.src = 'http://placebear.com/400/200';
+    animalsElement.alt = 'A bear.';
+    animalsElement.title = 'A BEAR!';
+}
+
+function setId (elem, str) {
+    elem.id = str
+    return elem
+}
+
+function setClass(elem, str) {
+    elem.className = str;
+    return elem;
+}
+
+function addAClass(elem, str) {
+    elem.classList.add(str);
+    return elem;
+}
+
+function removeAClass(elem, str) {
+    elem.classList.remove(str);
+    return elem;
+}
+
+function newElement(name) {
+    return document.createElement(name);
+}
+
+function findElementById(id) {
+    return document.getElementById(id);
+}
+
+function findElementsByQuery(query) {
+    return document.querySelectorAll(query);
+}
+
+function reverseList(query) {
+    const list = document.querySelector(query);
+    const items = Array.from(list.children).reverse();
+    items.forEach((item) => list.appendChild(item));
+    return list;
+}
+
+function mover(moveThis, appendToThis) {
+    const element = document.querySelector(moveThis);
+    const target = document.querySelector(appendToThis);
+    target.appendChild(element);
+    return element;
+}
+
+function filler(list, candidates) {
+    candidates.forEach((candidate) => {
+        const item = document.createElement('li');
+        item.textContent = candidate;
+        list.appendChild(item);
+    });
+    return list;
+}
+
+function dupe(selector) {
+    const element = document.querySelector(selector);
+    const duplicate = element.cloneNode(true);
+    element.parentElement.appendChild(duplicate);
+    return duplicate;
+}
+
+function removeAll(selector) {
+    document.querySelectorAll(selector).forEach((element) => {
+        element.remove();
+    });
+}
+
+function getUserData() {
+    const nameInput = document.getElementById('username');
+    const speedInput = document.getElementById('speed');
+    const studentInput = document.getElementById('student');
+
+    return {
+        name: nameInput.value,
+        speed: Number(speedInput.value),
+        student: studentInput.checked,
+    };
+}
