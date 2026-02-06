@@ -26,8 +26,8 @@ function moreBears() {
 }
 
 function setId (elem, str) {
-    elem.id = str
-    return elem
+    elem.id = str;
+    return elem;
 }
 
 function setClass(elem, str) {
@@ -60,30 +60,31 @@ function findElementsByQuery(query) {
 function reverseList(query) {
     const list = document.querySelector(query);
     const items = Array.from(list.children).reverse();
-    items.forEach((item) => list.appendChild(item));
+    list.append(...items);
     return list;
 }
 
 function mover(moveThis, appendToThis) {
     const element = document.querySelector(moveThis);
     const target = document.querySelector(appendToThis);
-    target.appendChild(element);
+    target.append(element);
     return element;
 }
 
 function filler(list, candidates) {
-    candidates.forEach((candidate) => {
-        const item = document.createElement('li');
-        item.textContent = candidate;
-        list.appendChild(item);
-    });
-    return list;
+  for (const text of candidates) {
+    const li = document.createElement('li');
+    li.textContent = text;
+    list.append(li);
+  }
+
+  return list;
 }
 
 function dupe(selector) {
     const element = document.querySelector(selector);
     const duplicate = element.cloneNode(true);
-    element.parentElement.appendChild(duplicate);
+    element.parentElement.append(duplicate);
     return duplicate;
 }
 
@@ -94,13 +95,9 @@ function removeAll(selector) {
 }
 
 function getUserData() {
-    const nameInput = document.getElementById('username');
-    const speedInput = document.getElementById('speed');
-    const studentInput = document.getElementById('student');
-
     return {
-        name: nameInput.value,
-        speed: Number(speedInput.value),
-        student: studentInput.checked,
+        name: document.getElementById('username').value,
+        speed: Number(document.getElementById('speed').value),
+        student: document.getElementById('student').checked,
     };
 }
